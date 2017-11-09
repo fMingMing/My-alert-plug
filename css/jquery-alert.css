@@ -1,4 +1,6 @@
+/*底层阴影*/
 .shadow-black{
+    z-index: 9996;
     position: fixed;
     top:0;
     left: 0;
@@ -13,26 +15,40 @@
 .shadow-black.shadow{
     opacity: 1;
 }
+/*弹框*/
 .alert-box{
-    position: absolute;
-    top:50%;
-    left: 50%;
+    z-index: 9999;
+    position: fixed;
+    top: 200px;;
+    left: 0;
+    right: 0;
     width: 375px;
     height: auto;
+    margin: 0 auto;
     padding: 32px 0;
+    opacity: 0;
+    background-color: #fff;
+    text-align: center;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    transform: translateX(-50%) translateY(-50%);
-    -webkit-transform:  translateX(-50%) translateY(-50%);
-    -moz-transform:  translateX(-50%) translateY(-50%);
-    transform-origin:center;
-    -ms-transform-origin:center;
-    -webkit-transform-origin:center;
-    -moz-transform-origin:center;
-    -o-transform-origin:center;
-    background: #fff;
-    text-align: center;
+    box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
+    -o-box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
+    transform: translate3D(0,-50px,0);
+    -webkit-transform: translate3D(0,-50px,0);
+    -moz-transform: translate3D(0,-50px,0);
+    transition: all .6s ease;
+    -webkit-transition: all .6s ease;
+    -moz-transition: all .6s ease;
+
+}
+.alert-box.shadow{
+    opacity: 1;
+    transform: translate3D(0,0,0);
+    -webkit-transform: translate3D(0,0,0);
+    -moz-transform: translate3D(0,0,0);
 }
 .alert-title{
     font-size: 18px;
@@ -47,6 +63,9 @@
     font-weight: normal;
     color: #666;
 }
+.alert-content.align-left{
+    text-align: left;
+}
 .alert-button{
     display: -webkit-flex;
     flex-flow: row nowrap;
@@ -55,18 +74,13 @@
 }
 button{
     height: 32px;
-    line-height: 32px;
+    line-height: 31px;
     padding: 0 25px;
     border-radius: 4px;
     font-size: 16px;
     font-weight: normal;
 }
-button :hover{
-    background-color: #fc7f81;
-}
-button:active{
-    background-color: #f74142;
-}
+
 .cancel{
     background-color: transparent;
     border: 1px solid #ccc;
