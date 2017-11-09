@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jquery-alert.css">
+</head>
+<body>
+<button id="showAlert">按钮</button>
+<!--<section>-->
+    <!--<div class="alert-box">-->
+        <!--<p class="alert-title">标题</p>-->
+        <!--<div class="alert-content">我是内容。</div>-->
+        <!--<div class="alert-button">-->
+            <!--<button class="cancel">取消</button>-->
+            <!--<button class="ensure">确定</button>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/jquery-alert.js"></script>
+<script>
+    $('#showAlert').click(function () {
+        $(this).jQueryAlert({
+            
+        }).confirmBtn(function (res) {
+            console.log(res);
+        })
+    })
+</script>
+</body>
+</html>

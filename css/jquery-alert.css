@@ -1,0 +1,79 @@
+.shadow-black{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.3);
+    opacity: 0;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+}
+.shadow-black.shadow{
+    opacity: 1;
+}
+.alert-box{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 375px;
+    height: auto;
+    padding: 32px 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform:  translateX(-50%) translateY(-50%);
+    -moz-transform:  translateX(-50%) translateY(-50%);
+    transform-origin:center;
+    -ms-transform-origin:center;
+    -webkit-transform-origin:center;
+    -moz-transform-origin:center;
+    -o-transform-origin:center;
+    background: #fff;
+    text-align: center;
+}
+.alert-title{
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: bold;
+    color:#333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.alert-content{
+    font-size: 14px;
+    font-weight: normal;
+    color: #666;
+}
+.alert-button{
+    display: -webkit-flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin:34px 76px 0;
+}
+button{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 25px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: normal;
+}
+button :hover{
+    background-color: #fc7f81;
+}
+button:active{
+    background-color: #f74142;
+}
+.cancel{
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color:#666;
+}
+.ensure{
+    border: none;
+    background-color: #ff5e5f;
+    color:#fff;
+}
