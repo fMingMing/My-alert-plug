@@ -25,7 +25,7 @@
     width: 375px;
     height: auto;
     margin: 0 auto;
-    padding: 32px 0;
+    padding:32px 34px;
     opacity: 0;
     background-color: #fff;
     text-align: center;
@@ -56,9 +56,10 @@
     font-weight: bold;
     color:#333;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 .alert-content{
+    line-height: 20px;
     font-size: 14px;
     font-weight: normal;
     color: #666;
@@ -70,7 +71,7 @@
     display: -webkit-flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin:34px 76px 0;
+    margin:28px 42px 0;
 }
 button{
     height: 32px;
