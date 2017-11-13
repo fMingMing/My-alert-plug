@@ -11,7 +11,9 @@
             title: '弹框标题', // 标题
             cancelBtnText: '取消', // 取消按钮文字
             okBtnText: '确定', // 确认按钮文字
-            content:'弹框内容'   // 内容
+            content:'弹框内容',   // 内容
+            isOne:false,
+            oneBtnText:'我知道了'
         };
         this.options = $.extend({},this.defaults, options);
         console.log(this.options);
@@ -19,8 +21,9 @@
         <p class="alert-title">${this.options.title}</p>
         <div class="alert-content">${this.options.content}</div>
         <div class="alert-button">
-            <button class="cancel" data-type="cancel-btn">${this.options.cancelBtnText}</button>
-            <button class="ensure" data-type="ensure-btn">${this.options.okBtnText}</button>
+            <button class="cancel twoBtn" data-type="cancel-btn">${this.options.cancelBtnText}</button>
+            <button class="ensure twoBtn" data-type="ensure-btn">${this.options.okBtnText}</button>
+            <button class="onlyOne" data-type="one-btn">${this.options.oneBtnText}</button>
         </div>
       </div>`;
     }
@@ -58,6 +61,14 @@
             //当内容字数大于20时，修改样式
             if(that.options.content.length>20){
                 $('.alert-content').addClass('align-left');
+            }
+            //判断显示几个按钮
+            if(that.options.isOne){
+                $('.onlyOne').css('display','block');
+                $('.twoBtn').css('display','none');
+            }else {
+                $('.onlyOne').css('display','none');
+                $('.twoBtn').css('display','block');
             }
             setTimeout(function () {
                 // $('.alert-box').fadeIn("slow","swing");
@@ -102,6 +113,9 @@
                         break;
                     case 'ensure-btn':
                         that.confirm('ok');
+                        break;
+                    case 'one-btn':
+                        that.destroy();
                         break;
                     default:
                         break;
