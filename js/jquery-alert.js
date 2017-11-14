@@ -13,17 +13,20 @@
             okBtnText: '确定', // 确认按钮文字
             content:'弹框内容',   // 内容
             isOne:false,
-            oneBtnText:'我知道了'
+            oneBtnText:'我知道了',
+            confirm:function(){},
+            cancelB:function(){},
+            konw:function () {}
         };
         this.options = $.extend({},this.defaults, options);
         console.log(this.options);
-        this.html = `<div class="alert-box">
+        this.html = `<div class="x-alert-box">
         <p class="alert-title">${this.options.title}</p>
         <div class="alert-content">${this.options.content}</div>
         <div class="alert-button">
             <button class="cancel twoBtn" data-type="cancel-btn">${this.options.cancelBtnText}</button>
             <button class="ensure twoBtn" data-type="ensure-btn">${this.options.okBtnText}</button>
-            <button class="onlyOne" data-type="one-btn">${this.options.oneBtnText}</button>
+            <button class="only-one" data-type="one-btn">${this.options.oneBtnText}</button>
         </div>
       </div>`;
     }
@@ -64,15 +67,14 @@
             }
             //判断显示几个按钮
             if(that.options.isOne){
-                $('.onlyOne').css('display','block');
+                $('.only-one').css('display','block');
                 $('.twoBtn').css('display','none');
             }else {
-                $('.onlyOne').css('display','none');
+                $('.only-one').css('display','none');
                 $('.twoBtn').css('display','block');
             }
             setTimeout(function () {
-                // $('.alert-box').fadeIn("slow","swing");
-                $('.alert-box').addClass('shadow');
+                $('.x-alert-box').addClass('shadow');
                 that.bindEvent();
             }, 10);
         },
@@ -83,11 +85,11 @@
          * 当消失动画结束后，从dom树中删除
          * */
         destroy: function () {
-            $('.alert-box').removeClass('shadow');
+            $('.x-alert-box').removeClass('shadow');
             this.unbindEvent();
             this.removeShade();
             setTimeout(function () {
-                $('body').find(".alert-box").remove();
+                $('body').find(".x-alert-box").remove();
                 this.html = null;
             }, 300);
         },
@@ -96,43 +98,33 @@
          * 删除的只是DOM结构，内存中依旧保存着数据。所以要手动将DOM占用的内存清空。
          * */
         unbindEvent: function () {
-            $('.alert-box').unbind('click');
+            $('.x-alert-box').unbind('click');
         },
         /**
          * 绑定函数
          * */
         bindEvent: function () {
             var that = this;
-            that.$element = $('.alert-box');
+            that.$element = $('.x-alert-box');
 
             // 根据data-type 绑定对应的事件
             that.$element.on('click', function (event) {
                 switch (event.target.getAttribute("data-type")) {
                     case 'cancel-btn':
-                        that.destroy();
+                        that.options.cancelB.call(that);
                         break;
                     case 'ensure-btn':
-                        that.confirm('ok');
+                        that.options.confirm.call(that);
                         break;
                     case 'one-btn':
-                        that.destroy();
+                        that.options.konw.call(that);
+                        // that.destroy();
                         break;
                     default:
                         break;
                 }
             });
         },
-
-        /**
-         * 点击确认按钮后的回调函数
-         * */
-        confirmBtn: function(callback){
-            if(typeof callback === 'function') {
-                this.confirm = callback;
-            }
-            return this;
-        }
-
     }
 
     $.fn.jQueryAlert = function (options) {

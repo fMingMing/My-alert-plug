@@ -16,7 +16,7 @@
     opacity: 1;
 }
 /*弹框*/
-.alert-box{
+.x-alert-box{
     z-index: 9999;
     position: fixed;
     top: 200px;;
@@ -26,12 +26,12 @@
     height: auto;
     margin: 0 auto;
     padding:32px 34px;
-    opacity: 0;
-    background-color: #fff;
-    text-align: center;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
+    background-color: #fff;
+    opacity: 0;
+    text-align: center;
     box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
     -webkit-box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
     -moz-box-shadow: 1px 0 8px rgba(0, 0, 0, .3);
@@ -44,19 +44,19 @@
     -moz-transition: all .6s ease;
 
 }
-.alert-box.shadow{
+.x-alert-box.shadow{
     opacity: 1;
     transform: translate3D(0,0,0);
     -webkit-transform: translate3D(0,0,0);
     -moz-transform: translate3D(0,0,0);
 }
 .alert-title{
-    font-size: 18px;
+    margin-bottom: 24px;
     line-height: 18px;
+    font-size: 18px;
     font-weight: bold;
     color:#333;
     text-align: center;
-    margin-bottom: 24px;
 }
 .alert-content{
     line-height: 20px;
@@ -107,12 +107,14 @@ button:hover{
     border: 1px solid #ccc;
     color:#666;
 }
+
 .ensure{
     border: none;
     background-color: #ff5e5f;
     color:#fff;
 }
-.onlyOne{
+
+.only-one{
     background-color: #ff5e5f;
     border: none;
     color:#fff;
