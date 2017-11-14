@@ -98,6 +98,9 @@ button{
     font-size: 16px;
     font-weight: normal;
 }
+button:hover{
+    cursor: pointer;
+}
 
 .cancel{
     background-color: transparent;
