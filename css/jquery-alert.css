@@ -57,7 +57,7 @@
     width: 11px;
     cursor: pointer;
 }
-.alert-title{
+.x-alert-title{
     margin-bottom: 24px;
     line-height: 18px;
     font-size: 18px;
@@ -65,16 +65,16 @@
     color:#333;
     text-align: center;
 }
-.alert-content{
+.x-alert-content{
     line-height: 20px;
     font-size: 14px;
     font-weight: normal;
     color: #666;
 }
-.alert-content.align-left{
+.x-alert-content.align-left{
     text-align: left;
 }
-.alert-button{
+.x-alert-button{
     display:-webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -97,7 +97,7 @@
     justify-content: space-between;
     margin:28px 42px 0;
 }
-button{
+.x-alert-btns{
     height: 32px;
     line-height: 31px;
     padding: 0 25px;
@@ -105,7 +105,7 @@ button{
     font-size: 16px;
     font-weight: normal;
 }
-button:hover{
+.x-alert-btns:hover{
     cursor: pointer;
 }
 

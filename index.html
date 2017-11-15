@@ -9,13 +9,13 @@
 <body>
 <button id="showAlert">按钮</button>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/jquery-alert.js"></script>
+<script src="js/jquery-alert.js?v=11"></script>
 <script>
     $('#showAlert').click(function () {
         $(this).jQueryAlert({
             title:'提示',
             content:'天降大任于斯人也,必先苦其心智，劳其筋骨，饿其体肤,空乏其身，行拂乱其所为，所以动心忍性，增益其所不能。',
-            isOne:true,
+            isOne:false,
             confirm: function (res) {
                 console.log(res);
                 this.destroy();

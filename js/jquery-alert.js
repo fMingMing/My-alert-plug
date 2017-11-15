@@ -22,12 +22,12 @@
         console.log(this.options);
         this.html = `<div class="x-alert-box">
         <img class="x-close-icon" src="css/close-icon.png" data-type="close-btn">
-        <p class="alert-title">${this.options.title}</p>
-        <div class="alert-content">${this.options.content}</div>
-        <div class="alert-button">
-            <button class="cancel twoBtn" data-type="cancel-btn">${this.options.cancelBtnText}</button>
-            <button class="ensure twoBtn" data-type="ensure-btn">${this.options.okBtnText}</button>
-            <button class="only-one" data-type="one-btn">${this.options.oneBtnText}</button>
+        <p class="x-alert-title">${this.options.title}</p>
+        <div class="x-alert-content">${this.options.content}</div>
+        <div class="x-alert-button">
+            <button class="x-alert-btns cancel two-btn" data-type="cancel-btn">${this.options.cancelBtnText}</button>
+            <button class="x-alert-btns ensure two-btn" data-type="ensure-btn">${this.options.okBtnText}</button>
+            <button class="x-alert-btns only-one" data-type="one-btn">${this.options.oneBtnText}</button>
         </div>
       </div>`;
     }
@@ -64,15 +64,25 @@
             $('body').append(this.html);
             //当内容字数大于20时，修改样式
             if(that.options.content.length>20){
-                $('.alert-content').addClass('align-left');
+                $('.x-alert-content').addClass('align-left');
             }
+            if(that.options.cancelBtnText.length>=4){
+                $('.cancel').css("padding","0 20px");
+            }
+            if(that.options.okBtnText.length>=4){
+                $('.ensure').css("padding","0 20px");
+            }
+            if(that.options.oneBtnText.length>=4){
+                $('.only-one').css("padding","0 20px");
+            }
+
             //判断显示几个按钮
             if(that.options.isOne){
                 $('.only-one').css('display','block');
-                $('.twoBtn').css('display','none');
+                $('.two-btn').css('display','none');
             }else {
                 $('.only-one').css('display','none');
-                $('.twoBtn').css('display','block');
+                $('.two-btn').css('display','block');
             }
             setTimeout(function () {
                 $('.x-alert-box').addClass('shadow');
