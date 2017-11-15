@@ -21,6 +21,7 @@
         this.options = $.extend({},this.defaults, options);
         console.log(this.options);
         this.html = `<div class="x-alert-box">
+        <img class="x-close-icon" src="css/close-icon.png" data-type="close-btn">
         <p class="alert-title">${this.options.title}</p>
         <div class="alert-content">${this.options.content}</div>
         <div class="alert-button">
@@ -110,14 +111,17 @@
             // 根据data-type 绑定对应的事件
             that.$element.on('click', function (event) {
                 switch (event.target.getAttribute("data-type")) {
+                    case 'close-btn':
+                        that.destroy();
+                        break;
                     case 'cancel-btn':
                         that.options.cancelB.call(that);
                         break;
                     case 'ensure-btn':
-                        that.options.confirm.call(that);
+                        that.options.confirm.call(that,'ok');
                         break;
                     case 'one-btn':
-                        that.options.konw.call(that);
+                        that.options.konw.call(that,'ok');
                         // that.destroy();
                         break;
                     default:
